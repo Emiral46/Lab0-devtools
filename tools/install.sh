@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# Author : James Nock
-# Year   : 2022
-
-set -euo pipefail
+# Author : Emir Alemdar
+# Year   : 2025
 
 echo () {
     printf "\n%b\n" "[iac] $1"
@@ -17,23 +15,32 @@ POST_RUN_SCRIPT=""
 LOCAL_DEV="${LOCALDEV:-}"
 curdir="$(pwd)"
 
-# Detect the OS type and install git, as well as Brew for MacOS
+# Detect the OS type and install Homebrew for MacOS
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if grep -qi microsoft /proc/version; then
-        echo "[Detected Platform] Ubuntu on Windows"
-        POST_RUN_SCRIPT="./tools/ubuntu_wsl.sh"
+        echo "[Detected Platform] Linux on Windows"
+        ./tools/wsl.sh
     else
         echo "[Detected Platform] Native Linux"
-        POST_RUN_SCRIPT="./tools/ubuntu.sh"
     fi
 
-    if ! git --version &>/dev/null; then
-        echo "Installing git... you may have to enter your password here."
-        sudo apt update
-        sudo apt install -y git
+    # Detect the Linux Distriution to use the correct installation script
+    source /etc/os-release
+    if [[ $ID == "ubuntu" || $ID_LIKE == "ubuntu" ]]; then
+        echo "[Detected Distribution] Ubuntu"
+        POST_RUN_SCRIPT="./tools/ubuntu.sh"
+    elif [[ $ID == "fedora" || $ID_LIKE == "fedora" ]]; then
+        echo "[Detected Distribution] Fedora"
+        POST_RUN_SCRIPT="./tools/fedora.sh"
+    elif [[ $ID == "arch" || $ID_LIKE == "arch" ]]; then
+        echo "[Detected Distribution] Arch Linux"
+        POST_RUN_SCRIPT="./tools/arch.sh"
     else
-        echo "Git already installed... skipping"
+        echo "Unrecognised Linux distribution detected. You must install the software required for labs manually or use a
+        recognised distrobution instead"
+        exit 1
     fi
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     POST_RUN_SCRIPT="./tools/darwin.sh"
 
@@ -75,6 +82,16 @@ else
     exit 1
 fi
 
+echo "Installing dependencies"
+if [ -z "$LOCAL_DEV" ]; then
+    cd "$TOOLS_FOLDER"
+    "$POST_RUN_SCRIPT"
+else
+    echo "Local install tool development mode activated"
+    cd "${curdir}"
+    "$POST_RUN_SCRIPT"
+fi
+
 if [ ! -d "$IAC_FOLDER" ]; then
     echo "Creating folder at ${IAC_FOLDER}"
     mkdir -p "$IAC_FOLDER"
@@ -94,16 +111,6 @@ else
     git pull --ff-only
 fi
 mkdir -p "${TOOLS_FOLDER}/autumn/workspace/labs" "${TOOLS_FOLDER}/autumn/workspace/cpu"
-
-echo "Installing dependencies"
-if [ -z "$LOCAL_DEV" ]; then
-    cd "$TOOLS_FOLDER"
-    "$POST_RUN_SCRIPT"
-else
-    echo "Local install tool development mode activated"
-    cd "${curdir}"
-    "$POST_RUN_SCRIPT"
-fi
 
 echo "Make sure VS Code is installed then run the following to open the workspace. Make sure to mark the workspace as trusted."
 printf "\n================\n%s\n================\n\n" "code ${TOOLS_FOLDER}/autumn/workspace/iac-autumn.code-workspace"
