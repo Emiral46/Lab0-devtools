@@ -26,7 +26,7 @@ At the end of the lab you will have installed the following tools:
 7) Inside the Ubuntu terminal, enter
 
     ```bash
-    bash <(curl -fsSL https://raw.githubusercontent.com/EIE2-IAC-Labs/Lab0-devtools/main/tools/install.sh)
+    bash <(curl -fsSL https://raw.githubusercontent.com/Emiral46/Lab0-devtools/main/tools/install.sh)
     ```
 
     You may have to enter your password a few times while everything installs. Windows may also ask for administrator access.
