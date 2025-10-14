@@ -1,5 +1,4 @@
 #!/bin/sh
-set -e
 
 # Regular expression for identifying Vbuddy in usbipd device info
 VBUDDY_REGEX="[0-9]-[0-9] .* USB-SERIAL CH340"
