@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Author : James Nock
-# Year   : 2022
+# Author : Emir Alemdar
+# Year   : 2025
 
 set -euo pipefail
 
@@ -19,11 +19,6 @@ if [ "${gzip_code}" -eq 126 ]; then
 else
     echo "gzip working correctly"
 fi
-
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-echo "Running additional script from ${SCRIPT_DIR}"
-
-"${SCRIPT_DIR}/ubuntu.sh"
 
 # Fix GTKwave warnings in WSL
 echo -e '\nexport $(dbus-launch)' >> ~/.bashrc
