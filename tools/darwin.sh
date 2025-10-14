@@ -4,8 +4,6 @@
 # Contributor(s) : Hrishikesh Venkatesh
 # Year   : 2024
 
-set -euo pipefail
-
 echo () {
     printf "\n%b\n" "[iac] $1"
 }
