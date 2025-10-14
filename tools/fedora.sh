@@ -47,7 +47,7 @@ verilator --version
 
 echo "Installing riscv-gnu-toolchain... this may require your password..."
 # shellcheck disable=SC1091
-tools_download_link="https://github.com/EIE2-IAC-Labs/Lab0-devtools/releases/download/v1.0.0/riscv-gnu-toolchain-2022-09-21-Ubuntu-22.04.tar.gz"
+tools_download_link="https://github.com/Emiral46/Lab0-devtools/releases/download/v1.0.0/riscv-gnu-toolchain-2022-09-21-linux.tar.gz"
 
 cd /tmp
 rm -rf riscv-gnu-toolchain.tar.gz
