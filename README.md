@@ -44,7 +44,7 @@ At the end of the lab you will have installed the following tools:
     ~/Documents/iac/lab0-devtools/tools/extensions.sh
     ```
 
-10) Follow the instructions in the [toolchain project](https://github.com/Emiral46/Lab0-devtools/blob/main/autumn/workspace/toolchain) to test that your tools are functioning correctly. This folder is already downloaded and can be found in your VS Code workspace you just opened.
+10) Follow the instructions in the [toolchain project](https://github.com/EIE2-IAC-Labs/Lab0-devtools/blob/main/autumn/workspace/toolchain) to test that your tools are functioning correctly. This folder is already downloaded and can be found in your VS Code workspace you just opened.
 
 ### macOS
 
@@ -53,18 +53,18 @@ At the end of the lab you will have installed the following tools:
 3) Open a terminal and enter
 
     ```bash
-    bash <(curl -fsSL https://raw.githubusercontent.com/EIE2-IAC-Labs/Lab0-devtools/main/tools/install.sh)
+    bash <(curl -fsSL https://raw.githubusercontent.com/Emiral46/Lab0-devtools/main/tools/install.sh)
     ```
 
     You may have to enter your password a few times while everything installs.
 
     Depending on your Internet connection, this may take up to 15 minutes.
 4) VS Code should automatically open after the previous step. If not, open the *workspace* at `~/Documents/iac/lab0-devtools/autumn/workspace/iac-autumn.code-workspace`; to do this open VS Code, and select "File->Open Workspace from File...", then navigate to the workspace file.
-5) Follow the instructions in the [toolchain project](https://github.com/Emiral46/Lab0-devtools/blob/main/autumn/workspace/toolchain) to test that your tools are functioning correctly. This folder is already downloaded and can be found in your VS Code workspace you just opened.
+5) Follow the instructions in the [toolchain project](https://github.com/EIE2-IAC-Labs/Lab0-devtools/blob/main/autumn/workspace/toolchain) to test that your tools are functioning correctly. This folder is already downloaded and can be found in your VS Code workspace you just opened.
 
 ## Behind the scenes
 
-The `bash <(curl -fsSL https://raw.githubusercontent.com/EIE2-IAC-Labs/Lab0-devtools/main/tools/install.sh)` first runs `curl`, which downloads the [install script](./tools/install.sh) from GitHub. The contents of this file are then redirected to the `bash` shell to be executed.
+The `bash <(curl -fsSL https://raw.githubusercontent.com/Emiral46/Lab0-devtools/main/tools/install.sh)` first runs `curl`, which downloads the [install script](./tools/install.sh) from GitHub. The contents of this file are then redirected to the `bash` shell to be executed.
 
 The `install.sh` script installs a few common dependencies before detecting what Operating System you are running on. It then runs one of the OS specific scripts in the same folder. These  compile Verilator from source, as well as install the riscv-gnu-toolchain from pre-compiled binaries. The Windows-specific script installs the usbipd library on Windows for connecting USB devices to WSL.
 
