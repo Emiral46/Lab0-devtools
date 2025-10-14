@@ -24,7 +24,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         echo "[Detected Platform] Native Linux"
     fi
 
-    # Detect the Linux Distriution to use the correct installation script
+    # Detect the Linux Distribution to use the correct installation script
     source /etc/os-release
     if [[ $ID == "ubuntu" || $ID_LIKE == "ubuntu" ]]; then
         echo "[Detected Distribution] Ubuntu"
@@ -37,7 +37,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         POST_RUN_SCRIPT="./tools/arch.sh"
     else
         echo "Unrecognised Linux distribution detected. You must install the software required for labs manually or use a
-        recognised distrobution instead"
+        recognised distribution instead"
         exit 1
     fi
 
