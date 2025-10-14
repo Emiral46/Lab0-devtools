@@ -82,16 +82,6 @@ else
     exit 1
 fi
 
-echo "Installing dependencies"
-if [ -z "$LOCAL_DEV" ]; then
-    cd "$TOOLS_FOLDER"
-    "$POST_RUN_SCRIPT"
-else
-    echo "Local install tool development mode activated"
-    cd "${curdir}"
-    "$POST_RUN_SCRIPT"
-fi
-
 if [ ! -d "$IAC_FOLDER" ]; then
     echo "Creating folder at ${IAC_FOLDER}"
     mkdir -p "$IAC_FOLDER"
@@ -111,6 +101,16 @@ else
     git pull --ff-only
 fi
 mkdir -p "${TOOLS_FOLDER}/autumn/workspace/labs" "${TOOLS_FOLDER}/autumn/workspace/cpu"
+
+echo "Installing dependencies"
+if [ -z "$LOCAL_DEV" ]; then
+    cd "$TOOLS_FOLDER"
+    "$POST_RUN_SCRIPT"
+else
+    echo "Local install tool development mode activated"
+    cd "${curdir}"
+    "$POST_RUN_SCRIPT"
+fi
 
 echo "Make sure VS Code is installed then run the following to open the workspace. Make sure to mark the workspace as trusted."
 printf "\n================\n%s\n================\n\n" "code ${TOOLS_FOLDER}/autumn/workspace/iac-autumn.code-workspace"
