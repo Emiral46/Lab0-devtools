@@ -78,7 +78,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     brew install coreutils
 else
-    echo "Error: Unrecognised OS platform detected."
+    echo "Error: Unrecognised OS platform detected"
     exit 1
 fi
 
