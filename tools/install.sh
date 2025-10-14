@@ -8,7 +8,7 @@ echo () {
 }
 
 IAC_FOLDER="$HOME/Documents/iac"
-REPO_NAME="lab0-devtools"
+REPO_NAME="Lab0-devtools"
 TOOLS_FOLDER="$IAC_FOLDER/$REPO_NAME"
 POST_RUN_SCRIPT=""
 
