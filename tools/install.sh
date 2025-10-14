@@ -37,7 +37,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         POST_RUN_SCRIPT="./tools/arch.sh"
     else
         echo "Unrecognised Linux distribution detected. You must install the software required for labs manually or use a
-        recognised distribution instead"
+        recognised distribution instead."
         exit 1
     fi
 
@@ -78,7 +78,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     brew install coreutils
 else
-    echo "Error: Unrecognised OS platform detected"
+    echo "Error: Unrecognised OS platform detected."
     exit 1
 fi
 
