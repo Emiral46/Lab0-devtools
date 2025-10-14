@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-# Author : James Nock
-# Year   : 2022
-
-set -euo pipefail
+# Author : Emir Alemdar
+# Year   : 2025
 
 echo () {
     printf "\n%b\n" "[iac] $1"
@@ -43,26 +41,12 @@ sudo apt install -y \
 
 # Install Verilator
 echo "Installing Verilator"
-cd /tmp
-rm -rf verilator
-
-git clone https://github.com/verilator/verilator verilator
-cd verilator
-git checkout v4.226
-autoconf
-./configure
-make -j "$(nproc)"
-sudo make install
-cd ..
-rm -rf verilator
-
+sudo apt install -y verilator
 verilator --version
 
 echo "Installing riscv-gnu-toolchain... this may require your password..."
 # shellcheck disable=SC1091
-ubuntu_version=$( . /etc/os-release ; printf "%s" "$VERSION_ID" )
-echo "Got Ubuntu version: ${ubuntu_version}"
-tools_download_link="https://github.com/EIE2-IAC-Labs/Lab0-devtools/releases/download/v1.0.0/riscv-gnu-toolchain-2022-09-21-Ubuntu-${ubuntu_version}.tar.gz"
+tools_download_link="https://github.com/EIE2-IAC-Labs/Lab0-devtools/releases/download/v1.0.0/riscv-gnu-toolchain-2022-09-21-Ubuntu-22.04.tar.gz"
 
 cd /tmp
 rm -rf riscv-gnu-toolchain.tar.gz
