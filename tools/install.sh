@@ -93,7 +93,7 @@ if [ ! -d "$TOOLS_FOLDER" ]
 then
     echo "Cloning the iac Lab0-devtools repository"
     cd "$IAC_FOLDER"
-    git clone --recurse-submodules https://github.com/Emiral46/Lab0-devtools "$TOOLS_FOLDER" &>/dev/null
+    git clone --recurse-submodules https://github.com/Emiral46/Lab0-devtools
 else
     echo "Updating the iac Lab0-devtools repository"
     cd "$TOOLS_FOLDER"
