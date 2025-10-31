@@ -29,12 +29,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ $ID == "ubuntu" || $ID_LIKE == "ubuntu" ]]; then
         echo "[Detected Distribution] Ubuntu"
         POST_RUN_SCRIPT="./tools/ubuntu.sh"
+        chmod +x "/tools/ubuntu.sh"
     elif [[ $ID == "fedora" || $ID_LIKE == "fedora" ]]; then
         echo "[Detected Distribution] Fedora"
         POST_RUN_SCRIPT="./tools/fedora.sh"
+        chmod +x "/tools/fedora.sh"
     elif [[ $ID == "arch" || $ID_LIKE == "arch" ]]; then
         echo "[Detected Distribution] Arch Linux"
         POST_RUN_SCRIPT="./tools/arch.sh"
+        chmod +x "/tools/arch.sh"
     else
         echo "Unrecognised Linux distribution detected. You must install the software required for labs manually or use a
         recognised distribution instead."
@@ -105,12 +108,10 @@ mkdir -p "${TOOLS_FOLDER}/autumn/workspace/labs" "${TOOLS_FOLDER}/autumn/workspa
 echo "Installing dependencies"
 if [ -z "$LOCAL_DEV" ]; then
     cd "$TOOLS_FOLDER"
-    chmod +x "$POST_RUN_SCRIPT"
     "$POST_RUN_SCRIPT"
 else
     echo "Local install tool development mode activated"
     cd "${curdir}"
-    chmod +x "$POST_RUN_SCRIPT"
     "$POST_RUN_SCRIPT"
 fi
 
