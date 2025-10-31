@@ -105,10 +105,12 @@ mkdir -p "${TOOLS_FOLDER}/autumn/workspace/labs" "${TOOLS_FOLDER}/autumn/workspa
 echo "Installing dependencies"
 if [ -z "$LOCAL_DEV" ]; then
     cd "$TOOLS_FOLDER"
+    chmod +x "$POST_RUN_SCRIPT"
     "$POST_RUN_SCRIPT"
 else
     echo "Local install tool development mode activated"
     cd "${curdir}"
+    chmod +x "$POST_RUN_SCRIPT"
     "$POST_RUN_SCRIPT"
 fi
 
