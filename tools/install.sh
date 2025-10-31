@@ -29,15 +29,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ $ID == "ubuntu" || $ID_LIKE == "ubuntu" ]]; then
         echo "[Detected Distribution] Ubuntu"
         POST_RUN_SCRIPT="./tools/ubuntu.sh"
-        chmod +x "/tools/ubuntu.sh"
     elif [[ $ID == "fedora" || $ID_LIKE == "fedora" ]]; then
         echo "[Detected Distribution] Fedora"
         POST_RUN_SCRIPT="./tools/fedora.sh"
-        chmod +x "/tools/fedora.sh"
     elif [[ $ID == "arch" || $ID_LIKE == "arch" ]]; then
         echo "[Detected Distribution] Arch Linux"
         POST_RUN_SCRIPT="./tools/arch.sh"
-        chmod +x "/tools/arch.sh"
     else
         echo "Unrecognised Linux distribution detected. You must install the software required for labs manually or use a
         recognised distribution instead."
