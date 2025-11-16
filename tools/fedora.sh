@@ -44,7 +44,7 @@ sudo dnf install \
 
 # Install Verilator
 echo "Installing Verilator"
-sudo dnf install verilator
+sudo dnf install verilator -y
 verilator --version
 
 echo "Installing riscv-gnu-toolchain... this may require your password..."
