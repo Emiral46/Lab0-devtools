@@ -21,9 +21,10 @@ sudo dnf install git \
     bison \
     gcc \
     clang \
-    make
+    make \
+    -y
 
-sudo dnf group install "development-tools"
+sudo dnf group install "development-tools" -y
 
 sudo dnf install \
     flex \
@@ -38,7 +39,8 @@ sudo dnf install \
     zlib-ng-devel \
     qemu qemu-user \
     gtkwave \
-    jq
+    jq \
+    -y
 
 # Install Verilator
 echo "Installing Verilator"
