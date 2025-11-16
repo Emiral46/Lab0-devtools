@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IAC_FOLDER="$HOME/Documents/iac"
-REPO_NAME="lab0-devtools"
+REPO_NAME="Lab0-devtools"
 TOOLS_FOLDER="$IAC_FOLDER/$REPO_NAME"
 
 printf "[iac] Installing extensions. Make sure to install the recommended instructions when prompted.\n"
